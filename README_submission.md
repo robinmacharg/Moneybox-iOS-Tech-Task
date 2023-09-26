@@ -15,12 +15,24 @@ Unordered observations on reading the brief.
 - Only target iPhone?  Only make allowances for e.g. iPad if there's time.  Different screen sizes should be accommodated.  Check on SE and Max versions.
 - Git - master branch will suffice for now.  No need for more advanced strategy.  .gitignore doesn't exclude .DS_Store
 
-
 ## Plan of attack
 
 - Icon
     - Quick search doen't throw up anything large enough.  Playstore.  Good enough for now.  Converted and added.
 - Updated .gitignore
 - Bring the README and wireframe into the project for ease of access.
-- Design screens.  The first two initially, to then unblock login functionality
+- Design screens.  The first two initially, to then unblock login functionality.  Eschew niceties - floating placeholders, fonts etc.
+- Grabbed webfonts, converted from `.woff` to `.ttf`, added to app, restyled app text.  
 
+## Notes
+
+- Bug in textField/shouldChangeCharactersIn on simulator...
+- Test on real device... iPhone needs updated to iOS17... tick, tick, tick 
+- Invalid credentials cause 5min lockout. 
+
+
+## TODO
+
+- Email validation
+- Floating placeholders
+- Font

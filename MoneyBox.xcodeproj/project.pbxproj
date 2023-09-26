@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000CFC442AC3412600D3A337 /* ModernEra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC422AC3412500D3A337 /* ModernEra-Regular.ttf */; };
+		000CFC452AC3412600D3A337 /* ModernEra-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC432AC3412600D3A337 /* ModernEra-Bold.ttf */; };
+		000CFC472AC36B5100D3A337 /* AccountDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC462AC36B5100D3A337 /* AccountDetailsController.swift */; };
+		000CFC4A2AC36B7000D3A337 /* AccountDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC492AC36B7000D3A337 /* AccountDetailsModel.swift */; };
 		00FFD9702AC1C49E00774445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD96F2AC1C49E00774445 /* README.md */; };
 		00FFD9722AC1C4C400774445 /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD9712AC1C4C400774445 /* wireframe.png */; };
+		00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9752AC2D12D00774445 /* AccountsViewController.swift */; };
+		00FFD97D2AC2D49500774445 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD97C2AC2D49500774445 /* LoginViewModel.swift */; };
+		00FFD97F2AC2EEBA00774445 /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD97E2AC2EEBA00774445 /* AccountsViewModel.swift */; };
+		00FFD9812AC2F55800774445 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9802AC2F55800774445 /* AccountCell.swift */; };
 		B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228EA692880B30B00B35F16 /* LoginViewController.swift */; };
-		B228EA6C2880B30B00B35F16 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B228EA6A2880B30B00B35F16 /* Login.storyboard */; };
+		B228EA6C2880B30B00B35F16 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B228EA6A2880B30B00B35F16 /* App.storyboard */; };
 		B26EF47828881E7F003BFDF2 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = B26EF47728881E7F003BFDF2 /* Networking */; };
 		B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA46CB279350880041B3A5 /* AppDelegate.swift */; };
 		B2CA46D52793508A0041B3A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2CA46D42793508A0041B3A5 /* Assets.xcassets */; };
@@ -31,11 +39,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000CFC422AC3412500D3A337 /* ModernEra-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ModernEra-Regular.ttf"; path = "../../../../Downloads/ModernEra-Regular.ttf"; sourceTree = "<group>"; };
+		000CFC432AC3412600D3A337 /* ModernEra-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ModernEra-Bold.ttf"; path = "../../../../Downloads/ModernEra-Bold.ttf"; sourceTree = "<group>"; };
+		000CFC462AC36B5100D3A337 /* AccountDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsController.swift; sourceTree = "<group>"; };
+		000CFC492AC36B7000D3A337 /* AccountDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsModel.swift; sourceTree = "<group>"; };
 		00FFD96F2AC1C49E00774445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00FFD9712AC1C4C400774445 /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wireframe.png; sourceTree = "<group>"; };
 		00FFD9742AC2C47300774445 /* README_submission.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_submission.md; sourceTree = "<group>"; };
+		00FFD9752AC2D12D00774445 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		00FFD97C2AC2D49500774445 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		00FFD97E2AC2EEBA00774445 /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
+		00FFD9802AC2F55800774445 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		B228EA692880B30B00B35F16 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B228EA6A2880B30B00B35F16 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B228EA6A2880B30B00B35F16 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		B24EED92288ED5740016C233 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		B2CA46C8279350880041B3A5 /* MoneyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CA46CB279350880041B3A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000CFC482AC36B5600D3A337 /* AccountDetails */ = {
+			isa = PBXGroup;
+			children = (
+				000CFC462AC36B5100D3A337 /* AccountDetailsController.swift */,
+				000CFC492AC36B7000D3A337 /* AccountDetailsModel.swift */,
+			);
+			path = AccountDetails;
+			sourceTree = "<group>";
+		};
 		00FFD9732AC1C4CE00774445 /* Task Notes */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +100,55 @@
 				00FFD9742AC2C47300774445 /* README_submission.md */,
 			);
 			name = "Task Notes";
+			sourceTree = "<group>";
+		};
+		00FFD9772AC2D37D00774445 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00FFD97A2AC2D47A00774445 /* Login */,
+				00FFD97B2AC2D48100774445 /* Accounts */,
+				000CFC482AC36B5600D3A337 /* AccountDetails */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		00FFD9782AC2D38A00774445 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B228EA6A2880B30B00B35F16 /* App.storyboard */,
+				B2CA46D62793508A0041B3A5 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		00FFD9792AC2D39500774445 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				000CFC432AC3412600D3A337 /* ModernEra-Bold.ttf */,
+				000CFC422AC3412500D3A337 /* ModernEra-Regular.ttf */,
+				B2CA46D42793508A0041B3A5 /* Assets.xcassets */,
+				B2CA46D92793508A0041B3A5 /* Info.plist */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		00FFD97A2AC2D47A00774445 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B228EA692880B30B00B35F16 /* LoginViewController.swift */,
+				00FFD97C2AC2D49500774445 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		00FFD97B2AC2D48100774445 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				00FFD9752AC2D12D00774445 /* AccountsViewController.swift */,
+				00FFD97E2AC2EEBA00774445 /* AccountsViewModel.swift */,
+				00FFD9802AC2F55800774445 /* AccountCell.swift */,
+			);
+			path = Accounts;
 			sourceTree = "<group>";
 		};
 		B2CA46BF279350880041B3A5 = {
@@ -100,12 +174,10 @@
 		B2CA46CA279350880041B3A5 /* MoneyBox */ = {
 			isa = PBXGroup;
 			children = (
-				B228EA6A2880B30B00B35F16 /* Login.storyboard */,
-				B228EA692880B30B00B35F16 /* LoginViewController.swift */,
 				B2CA46CB279350880041B3A5 /* AppDelegate.swift */,
-				B2CA46D42793508A0041B3A5 /* Assets.xcassets */,
-				B2CA46D62793508A0041B3A5 /* LaunchScreen.storyboard */,
-				B2CA46D92793508A0041B3A5 /* Info.plist */,
+				00FFD9782AC2D38A00774445 /* Storyboards */,
+				00FFD9772AC2D37D00774445 /* View Controllers */,
+				00FFD9792AC2D39500774445 /* Misc */,
 			);
 			path = MoneyBox;
 			sourceTree = "<group>";
@@ -227,8 +299,10 @@
 				B2CA46D82793508A0041B3A5 /* LaunchScreen.storyboard in Resources */,
 				B2CA47712794D8E50041B3A5 /* LoginSucceed.json in Resources */,
 				B2CA46D52793508A0041B3A5 /* Assets.xcassets in Resources */,
-				B228EA6C2880B30B00B35F16 /* Login.storyboard in Resources */,
+				000CFC442AC3412600D3A337 /* ModernEra-Regular.ttf in Resources */,
+				B228EA6C2880B30B00B35F16 /* App.storyboard in Resources */,
 				B2CA47B42796052F0041B3A5 /* Accounts.json in Resources */,
+				000CFC452AC3412600D3A337 /* ModernEra-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,8 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000CFC4A2AC36B7000D3A337 /* AccountDetailsModel.swift in Sources */,
+				00FFD97F2AC2EEBA00774445 /* AccountsViewModel.swift in Sources */,
 				B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */,
+				00FFD97D2AC2D49500774445 /* LoginViewModel.swift in Sources */,
+				000CFC472AC36B5100D3A337 /* AccountDetailsController.swift in Sources */,
+				00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */,
 				B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */,
+				00FFD9812AC2F55800774445 /* AccountCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,10 +486,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7DM2UT7C8G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoneyBox/Info.plist;
+				INFOPLIST_FILE = MoneyBox/Misc/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Login;
+				INFOPLIST_KEY_UIMainStoryboardFile = App;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -435,10 +516,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7DM2UT7C8G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoneyBox/Info.plist;
+				INFOPLIST_FILE = MoneyBox/Misc/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Login;
+				INFOPLIST_KEY_UIMainStoryboardFile = App;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
