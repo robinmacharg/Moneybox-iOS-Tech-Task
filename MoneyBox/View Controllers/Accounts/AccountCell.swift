@@ -7,49 +7,59 @@
 
 import UIKit
 
-protocol AccountCellDelegate {
-    func tapped(recognizer: UITapGestureRecognizer)
-}
-
 class AccountCell: UITableViewCell {
-
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var planValueLabel: UILabel!
     @IBOutlet weak var moneyboxAmountLabel: UILabel!
     
+    // MARK: - Properties
+    
+    var id: Int?
     var delegate: AccountCellDelegate?
+    var accountName: String?
+    var planValue: Double?
+    var moneybox: Double?
+    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-//        layer.cornerRadius = 10
-        
-//        if let delegate {
-//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AccountCell.didTapView(_:)))
-//            containerView.addGestureRecognizer(tapGesture)
-////            tapGesture.delegate = delegate
-//        }
-    }
-
-    func configure() {
         layer.cornerRadius = 10
-//        if let delegate {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AccountCell.didTapView(_:)))
-            containerView.addGestureRecognizer(tapGesture)
-//            tapGesture.delegate = delegate
-//        }
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AccountCell.didTapView(_:)))
+        containerView.addGestureRecognizer(tapGesture)
     }
     
+    // MARK: - Methods
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(
+        id: Int,
+        accountName: String,
+        planValue: Double,
+        moneybox: Double,
+        delegate: AccountCellDelegate)
+    {
+        self.delegate = delegate
+        self.id = id
+        self.accountName = accountName
+        self.planValue = planValue
+        self.moneybox = moneybox
+        
+        accountNameLabel.text = accountName
+        planValueLabel.text = "£\(planValue)"
+        moneyboxAmountLabel.text = "£\(moneybox)"
     }
     
     @objc
     func didTapView(_ sender: UITapGestureRecognizer) {
-        print("did tap view", sender)
-        delegate?.tapped(recognizer: sender)
+        if let accountName, let planValue, let moneybox, let id {
+            delegate?.tapped(segueInfo: AccountsViewController.SegueInfo(
+                account: accountName,
+                planValue: planValue,
+                moneybox: moneybox,
+                id: id))
+        }
     }
 }

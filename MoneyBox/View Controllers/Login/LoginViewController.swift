@@ -91,7 +91,7 @@ extension LoginViewController {
         switch segue.identifier {
         case "login_accounts":
             if let user = model.user {
-                (segue.destination as? AccountsViewController)?.setUser(user)
+                (segue.destination as? AccountsViewController)?.configure(user: user)
             }
         default:
             break

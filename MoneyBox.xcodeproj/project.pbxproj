@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		000CFC442AC3412600D3A337 /* ModernEra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC422AC3412500D3A337 /* ModernEra-Regular.ttf */; };
 		000CFC452AC3412600D3A337 /* ModernEra-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC432AC3412600D3A337 /* ModernEra-Bold.ttf */; };
-		000CFC472AC36B5100D3A337 /* AccountDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC462AC36B5100D3A337 /* AccountDetailsController.swift */; };
-		000CFC4A2AC36B7000D3A337 /* AccountDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC492AC36B7000D3A337 /* AccountDetailsModel.swift */; };
+		000CFC472AC36B5100D3A337 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC462AC36B5100D3A337 /* AccountDetailsViewController.swift */; };
+		000CFC4A2AC36B7000D3A337 /* AccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC492AC36B7000D3A337 /* AccountDetailsViewModel.swift */; };
+		000CFC4C2AC37B2600D3A337 /* AccountCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC4B2AC37B2600D3A337 /* AccountCellDelegate.swift */; };
 		00FFD9702AC1C49E00774445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD96F2AC1C49E00774445 /* README.md */; };
 		00FFD9722AC1C4C400774445 /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD9712AC1C4C400774445 /* wireframe.png */; };
 		00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9752AC2D12D00774445 /* AccountsViewController.swift */; };
@@ -41,8 +42,9 @@
 /* Begin PBXFileReference section */
 		000CFC422AC3412500D3A337 /* ModernEra-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ModernEra-Regular.ttf"; path = "../../../../Downloads/ModernEra-Regular.ttf"; sourceTree = "<group>"; };
 		000CFC432AC3412600D3A337 /* ModernEra-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ModernEra-Bold.ttf"; path = "../../../../Downloads/ModernEra-Bold.ttf"; sourceTree = "<group>"; };
-		000CFC462AC36B5100D3A337 /* AccountDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsController.swift; sourceTree = "<group>"; };
-		000CFC492AC36B7000D3A337 /* AccountDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsModel.swift; sourceTree = "<group>"; };
+		000CFC462AC36B5100D3A337 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
+		000CFC492AC36B7000D3A337 /* AccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewModel.swift; sourceTree = "<group>"; };
+		000CFC4B2AC37B2600D3A337 /* AccountCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellDelegate.swift; sourceTree = "<group>"; };
 		00FFD96F2AC1C49E00774445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00FFD9712AC1C4C400774445 /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wireframe.png; sourceTree = "<group>"; };
 		00FFD9742AC2C47300774445 /* README_submission.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_submission.md; sourceTree = "<group>"; };
@@ -86,8 +88,8 @@
 		000CFC482AC36B5600D3A337 /* AccountDetails */ = {
 			isa = PBXGroup;
 			children = (
-				000CFC462AC36B5100D3A337 /* AccountDetailsController.swift */,
-				000CFC492AC36B7000D3A337 /* AccountDetailsModel.swift */,
+				000CFC462AC36B5100D3A337 /* AccountDetailsViewController.swift */,
+				000CFC492AC36B7000D3A337 /* AccountDetailsViewModel.swift */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
@@ -147,6 +149,7 @@
 				00FFD9752AC2D12D00774445 /* AccountsViewController.swift */,
 				00FFD97E2AC2EEBA00774445 /* AccountsViewModel.swift */,
 				00FFD9802AC2F55800774445 /* AccountCell.swift */,
+				000CFC4B2AC37B2600D3A337 /* AccountCellDelegate.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -320,14 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				000CFC4A2AC36B7000D3A337 /* AccountDetailsModel.swift in Sources */,
+				000CFC4A2AC36B7000D3A337 /* AccountDetailsViewModel.swift in Sources */,
 				00FFD97F2AC2EEBA00774445 /* AccountsViewModel.swift in Sources */,
 				B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */,
 				00FFD97D2AC2D49500774445 /* LoginViewModel.swift in Sources */,
-				000CFC472AC36B5100D3A337 /* AccountDetailsController.swift in Sources */,
+				000CFC472AC36B5100D3A337 /* AccountDetailsViewController.swift in Sources */,
 				00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */,
 				B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */,
 				00FFD9812AC2F55800774445 /* AccountCell.swift in Sources */,
+				000CFC4C2AC37B2600D3A337 /* AccountCellDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

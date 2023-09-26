@@ -34,13 +34,16 @@ final class AccountsViewModel: ObservableObject {
     
     // MARK: - Methods
     
+    func configure(user: LoginResponse.User) {
+        self.user = user
+    }
+    
     func loadData() {
         state = .loading
         DispatchQueue.global(qos: .userInitiated).async {
             self.dataProvider.fetchProducts { result in
                 switch result {
                 case .success(let response):
-                    self.accounts = response.accounts ?? []
                     self.productResponses = response.productResponses ?? []
                     self.totalPlanValue = response.totalPlanValue ?? 0.0
                     self.state = .loaded

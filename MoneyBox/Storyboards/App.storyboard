@@ -230,7 +230,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="GreyColor"/>
+                                                    <color key="backgroundColor" name="PaleBrand"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstItem="BOb-n0-Xo4" firstAttribute="centerY" secondItem="6D3-P9-8As" secondAttribute="centerY" id="7lK-pT-QZy"/>
@@ -333,95 +333,135 @@
             </objects>
             <point key="canvasLocation" x="744.92753623188412" y="123.88392857142857"/>
         </scene>
-        <!--Account Details Controller-->
+        <!--Account Details View Controller-->
         <scene sceneID="Tr3-pH-FmB">
             <objects>
-                <viewController id="6ge-XF-o23" customClass="AccountDetailsController" customModule="MoneyBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6ge-XF-o23" customClass="AccountDetailsViewController" customModule="MoneyBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4r-cG-jIL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ut-w9-dV6">
-                                <rect key="frame" x="163.5" y="727" width="87" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add £10"/>
-                                <connections>
-                                    <action selector="addMoney:" destination="6ge-XF-o23" eventType="touchUpInside" id="fbR-Wx-LKR"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EEn-yu-GXF">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ0-AW-3nd">
                                 <rect key="frame" x="116" y="92" width="182.5" height="25"/>
                                 <fontDescription key="fontDescription" name="ModernEra-Bold" family="Modern Era" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ko-SK-8JC">
-                                <rect key="frame" x="20" y="130" width="107" height="17"/>
-                                <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBb-NM-Sex">
-                                <rect key="frame" x="20" y="155" width="81" height="17"/>
-                                <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moneybox:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNt-DD-LnU">
-                                <rect key="frame" x="20" y="180" width="85" height="17"/>
-                                <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-bd-m9b">
-                                <rect key="frame" x="113" y="180" width="29" height="17"/>
-                                <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EEn-yu-GXF">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" name="AccentColor"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65V-0X-fP4">
-                                <rect key="frame" x="109" y="155" width="46" height="17"/>
-                                <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Df-Ik-b7m" userLabel="Container">
+                                <rect key="frame" x="0.0" y="125" width="414" height="771"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ut-w9-dV6">
+                                        <rect key="frame" x="166.5" y="641" width="81" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Add">
+                                                    <attributes>
+                                                        <font key="NSFont" size="16" name="ModernEra-Regular"/>
+                                                        <font key="NSOriginalFont" size="12" name="DiwanMishafiGold"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=" ">
+                                                    <attributes>
+                                                        <font key="NSFont" size="16" name="ModernEra-Regular"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="£">
+                                                    <attributes>
+                                                        <font key="NSFont" size="16" name="ModernEra-Regular"/>
+                                                        <font key="NSOriginalFont" size="12" name="DiwanMishafiGold"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="10">
+                                                    <attributes>
+                                                        <font key="NSFont" size="16" name="ModernEra-Regular"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addMoney:" destination="6ge-XF-o23" eventType="touchUpInside" id="fbR-Wx-LKR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ko-SK-8JC">
+                                        <rect key="frame" x="20" y="20" width="107" height="17"/>
+                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBb-NM-Sex">
+                                        <rect key="frame" x="20" y="45" width="80.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65V-0X-fP4">
+                                        <rect key="frame" x="108.5" y="45" width="45.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moneybox:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNt-DD-LnU">
+                                        <rect key="frame" x="20" y="70" width="85" height="17"/>
+                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-bd-m9b">
+                                        <rect key="frame" x="113" y="70" width="29" height="17"/>
+                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="65V-0X-fP4" firstAttribute="leading" secondItem="SBb-NM-Sex" secondAttribute="trailing" constant="8" symbolic="YES" id="0m9-8s-jng"/>
+                                    <constraint firstItem="vvc-bd-m9b" firstAttribute="centerY" secondItem="ZNt-DD-LnU" secondAttribute="centerY" id="2GD-38-zjb"/>
+                                    <constraint firstItem="vvc-bd-m9b" firstAttribute="leading" secondItem="ZNt-DD-LnU" secondAttribute="trailing" constant="8" symbolic="YES" id="BwH-ko-UKz"/>
+                                    <constraint firstItem="ZNt-DD-LnU" firstAttribute="leading" secondItem="7Df-Ik-b7m" secondAttribute="leading" constant="20" symbolic="YES" id="Gnz-la-Sag"/>
+                                    <constraint firstItem="ZNt-DD-LnU" firstAttribute="top" secondItem="SBb-NM-Sex" secondAttribute="bottom" constant="8" symbolic="YES" id="Jt4-W9-xaa"/>
+                                    <constraint firstItem="8Ko-SK-8JC" firstAttribute="leading" secondItem="7Df-Ik-b7m" secondAttribute="leading" constant="20" symbolic="YES" id="L4d-he-eqy"/>
+                                    <constraint firstItem="8Ko-SK-8JC" firstAttribute="top" secondItem="7Df-Ik-b7m" secondAttribute="top" constant="20" symbolic="YES" id="LaM-mM-lFf"/>
+                                    <constraint firstItem="SBb-NM-Sex" firstAttribute="top" secondItem="8Ko-SK-8JC" secondAttribute="bottom" constant="8" symbolic="YES" id="Qkg-RD-Tig"/>
+                                    <constraint firstItem="2ut-w9-dV6" firstAttribute="centerX" secondItem="7Df-Ik-b7m" secondAttribute="centerX" id="ZyG-kg-YAn"/>
+                                    <constraint firstItem="65V-0X-fP4" firstAttribute="centerY" secondItem="SBb-NM-Sex" secondAttribute="centerY" id="cq8-mo-R3Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="2ut-w9-dV6" secondAttribute="bottom" constant="100" id="cte-PW-HkS"/>
+                                    <constraint firstItem="SBb-NM-Sex" firstAttribute="leading" secondItem="7Df-Ik-b7m" secondAttribute="leading" constant="20" symbolic="YES" id="yWN-eO-c7k"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sWZ-dB-ofa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="65V-0X-fP4" firstAttribute="leading" secondItem="SBb-NM-Sex" secondAttribute="trailing" constant="8" symbolic="YES" id="9JG-ND-7S5"/>
-                            <constraint firstItem="sWZ-dB-ofa" firstAttribute="bottom" secondItem="2ut-w9-dV6" secondAttribute="bottom" constant="100" id="9Pi-lf-dQ7"/>
-                            <constraint firstItem="UQ0-AW-3nd" firstAttribute="top" secondItem="sWZ-dB-ofa" secondAttribute="top" id="9hi-8O-M4R"/>
-                            <constraint firstItem="65V-0X-fP4" firstAttribute="centerY" secondItem="SBb-NM-Sex" secondAttribute="centerY" id="Dfs-zB-yOJ"/>
-                            <constraint firstItem="SBb-NM-Sex" firstAttribute="leading" secondItem="sWZ-dB-ofa" secondAttribute="leading" constant="20" id="Jkj-6c-sNt"/>
-                            <constraint firstItem="ZNt-DD-LnU" firstAttribute="top" secondItem="SBb-NM-Sex" secondAttribute="bottom" constant="8" symbolic="YES" id="M23-7b-KL6"/>
-                            <constraint firstItem="8Ko-SK-8JC" firstAttribute="leading" secondItem="sWZ-dB-ofa" secondAttribute="leading" constant="20" id="POO-z6-LUt"/>
-                            <constraint firstItem="2ut-w9-dV6" firstAttribute="centerX" secondItem="g4r-cG-jIL" secondAttribute="centerX" id="TxD-ZK-hbU"/>
-                            <constraint firstItem="vvc-bd-m9b" firstAttribute="centerY" secondItem="ZNt-DD-LnU" secondAttribute="centerY" id="aTd-SE-D8t"/>
+                            <constraint firstItem="7Df-Ik-b7m" firstAttribute="leading" secondItem="sWZ-dB-ofa" secondAttribute="leading" id="Cng-AS-sEg"/>
+                            <constraint firstAttribute="bottom" secondItem="7Df-Ik-b7m" secondAttribute="bottom" id="DYA-Sa-6U6"/>
+                            <constraint firstItem="UQ0-AW-3nd" firstAttribute="top" secondItem="sWZ-dB-ofa" secondAttribute="top" id="Psb-0e-Npt"/>
+                            <constraint firstItem="UQ0-AW-3nd" firstAttribute="centerX" secondItem="g4r-cG-jIL" secondAttribute="centerX" id="aep-5C-kTB"/>
                             <constraint firstItem="EEn-yu-GXF" firstAttribute="centerX" secondItem="g4r-cG-jIL" secondAttribute="centerX" id="hiT-SV-CZa"/>
-                            <constraint firstItem="ZNt-DD-LnU" firstAttribute="leading" secondItem="sWZ-dB-ofa" secondAttribute="leading" constant="20" id="hjY-pB-UFm"/>
-                            <constraint firstItem="8Ko-SK-8JC" firstAttribute="top" secondItem="UQ0-AW-3nd" secondAttribute="bottom" constant="13" id="tG5-14-fBa"/>
-                            <constraint firstItem="vvc-bd-m9b" firstAttribute="leading" secondItem="ZNt-DD-LnU" secondAttribute="trailing" constant="8" symbolic="YES" id="uKz-Wa-FmI"/>
+                            <constraint firstItem="7Df-Ik-b7m" firstAttribute="trailing" secondItem="sWZ-dB-ofa" secondAttribute="trailing" id="iXM-R1-2Yo"/>
+                            <constraint firstItem="7Df-Ik-b7m" firstAttribute="top" secondItem="UQ0-AW-3nd" secondAttribute="bottom" constant="8" symbolic="YES" id="kz2-S9-nNN"/>
                             <constraint firstItem="EEn-yu-GXF" firstAttribute="centerY" secondItem="g4r-cG-jIL" secondAttribute="centerY" id="unl-6x-Joc"/>
-                            <constraint firstItem="UQ0-AW-3nd" firstAttribute="centerX" secondItem="g4r-cG-jIL" secondAttribute="centerX" id="xjy-gA-rJj"/>
-                            <constraint firstItem="SBb-NM-Sex" firstAttribute="top" secondItem="8Ko-SK-8JC" secondAttribute="bottom" constant="8" symbolic="YES" id="zYd-Fr-91u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VeB-DY-e3I"/>
                     <connections>
                         <outlet property="accountTypeLabel" destination="8Ko-SK-8JC" id="YTM-mr-WvO"/>
                         <outlet property="activityIndicator" destination="EEn-yu-GXF" id="ALY-Wm-YVj"/>
+                        <outlet property="containerView" destination="7Df-Ik-b7m" id="RcV-UM-eG4"/>
                         <outlet property="moneyboxLabel" destination="vvc-bd-m9b" id="Y7d-1w-NeG"/>
                         <outlet property="planValue" destination="65V-0X-fP4" id="qDH-Jo-Bx4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGp-hb-4G9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="124"/>
+            <point key="canvasLocation" x="1621.7391304347827" y="123.88392857142857"/>
         </scene>
     </scenes>
     <resources>
@@ -429,8 +469,8 @@
         <namedColor name="AccentColor">
             <color red="0.34299999475479126" green="0.75" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="GreyColor">
-            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="PaleBrand">
+            <color red="0.90196078431372551" green="0.97254901960784312" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

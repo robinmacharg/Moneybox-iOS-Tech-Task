@@ -11,6 +11,13 @@ import Combine
 
 class AccountsViewController: UIViewController {
     
+    struct SegueInfo {
+        let account: String
+        let planValue: Double
+        let moneybox: Double
+        let id: Int
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var name: UILabel!
@@ -21,6 +28,8 @@ class AccountsViewController: UIViewController {
     
     private var model = AccountsViewModel()
     private var bindings = Set<AnyCancellable>()
+    
+    private var segueInfo: SegueInfo?
     
     // MARK: - Lifecycle
     
@@ -50,11 +59,11 @@ class AccountsViewController: UIViewController {
                 switch state {
                 case .initial:
                     break
-
+                    
                 case .loading:
                     self.activityIndicator.isHidden = false
                     self.activityIndicator.startAnimating()
-
+                    
                 case .loaded:
                     self.planValue.text = "£\(self.model.totalPlanValue ?? 0)"
                     self.name.text = "Hello \(self.model.user?.firstName ?? "")!"
@@ -88,8 +97,24 @@ class AccountsViewController: UIViewController {
 // MARK: - Navigation
 
 extension AccountsViewController {
-    func setUser(_ user: LoginResponse.User) {
-        model.user = user
+    func configure(user: LoginResponse.User) {
+        model.configure(user: user)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "accounts_details":
+            if let user = model.user, let segueInfo {
+                (segue.destination as? AccountDetailsViewController)?.configure(
+                    account: segueInfo.account,
+                    planValue: segueInfo.planValue,
+                    moneybox: segueInfo.moneybox,
+                    id: segueInfo.id
+                )
+            }
+        default:
+            break
+        }
     }
 }
 
@@ -97,21 +122,24 @@ extension AccountsViewController {
 
 extension AccountsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.accounts?.count ?? 0
+        model.productResponses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "account", for: indexPath) as? AccountCell
-         {
-            if let account = model.accounts?[indexPath.row],
-                let totalValue = account.wrapper?.totalValue,
-               let moneyboxContributions = account.wrapper?.totalContributions
+        {
+            if let product = model.productResponses?[indexPath.row],
+               let planValue = product.planValue,
+               let moneybox = product.moneybox,
+               let name = product.product?.friendlyName,
+               let id = product.id
             {
-                cell.accountNameLabel.text = account.name
-                cell.planValueLabel.text = "£\(totalValue)"
-                cell.moneyboxAmountLabel.text = "£\(moneyboxContributions)"
-                cell.delegate = self
-                cell.configure()
+                cell.configure(
+                    id: id,
+                    accountName: name,
+                    planValue: planValue,
+                    moneybox: moneybox,
+                    delegate: self)
                 return cell
             }
             else {
@@ -125,13 +153,17 @@ extension AccountsViewController: UITableViewDataSource {
 // MARK: - <UITableViewDelegate>
 
 extension AccountsViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        tableView.deselectRow(at: indexPath, animated: true)
+    //    }
 }
 
+// MARK: - <AccountCellDelegate>
+
 extension AccountsViewController: AccountCellDelegate {
-    func tapped(recognizer: UITapGestureRecognizer) {
-        print("tapped")
+    func tapped(segueInfo: SegueInfo) {
+//        print("tapped", id)
+        self.segueInfo = segueInfo
+        self.performSegue(withIdentifier: "accounts_details", sender: self)
     }
 }
