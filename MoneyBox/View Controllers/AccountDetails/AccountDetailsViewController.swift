@@ -77,8 +77,8 @@ class AccountDetailsViewController: UIViewController {
     
     func updateScreen() {
         accountTypeLabel.text = model.account ?? ""
-        planValue.text = "£\(model.planValue ?? 0.0)"
-        moneyboxLabel.text = "£\(model.moneybox ?? 0.0)"
+        planValue.text = model.planValue?.asCurrency() ?? "0.00"
+        moneyboxLabel.text = model.moneybox?.asCurrency() ?? "0.00"
     }
     
     /**

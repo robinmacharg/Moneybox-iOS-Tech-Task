@@ -23,6 +23,7 @@
 		000CFC642AC462C700D3A337 /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC632AC462C700D3A337 /* JVFloatLabeledTextField */; };
 		000CFC662AC4661400D3A337 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC652AC4661300D3A337 /* String+EmailValidation.swift */; };
 		000CFC682AC4730C00D3A337 /* AccountsFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC672AC4730C00D3A337 /* AccountsFail.json */; };
+		00DC302B2AC4D7A900B85836 /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC302A2AC4D7A900B85836 /* Double+Currency.swift */; };
 		00FFD9702AC1C49E00774445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD96F2AC1C49E00774445 /* README.md */; };
 		00FFD9722AC1C4C400774445 /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD9712AC1C4C400774445 /* wireframe.png */; };
 		00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9752AC2D12D00774445 /* AccountsViewController.swift */; };
@@ -65,6 +66,7 @@
 		000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsError.swift; sourceTree = "<group>"; };
 		000CFC652AC4661300D3A337 /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
 		000CFC672AC4730C00D3A337 /* AccountsFail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AccountsFail.json; sourceTree = "<group>"; };
+		00DC302A2AC4D7A900B85836 /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
 		00FFD96F2AC1C49E00774445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00FFD9712AC1C4C400774445 /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wireframe.png; sourceTree = "<group>"; };
 		00FFD9742AC2C47300774445 /* README_submission.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_submission.md; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				000CFC652AC4661300D3A337 /* String+EmailValidation.swift */,
+				00DC302A2AC4D7A900B85836 /* Double+Currency.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				000CFC4A2AC36B7000D3A337 /* AccountDetailsViewModel.swift in Sources */,
 				00FFD97F2AC2EEBA00774445 /* AccountsViewModel.swift in Sources */,
 				000CFC552AC4309300D3A337 /* LoginError.swift in Sources */,
+				00DC302B2AC4D7A900B85836 /* Double+Currency.swift in Sources */,
 				000CFC662AC4661400D3A337 /* String+EmailValidation.swift in Sources */,
 				B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */,
 				00FFD97D2AC2D49500774445 /* LoginViewModel.swift in Sources */,

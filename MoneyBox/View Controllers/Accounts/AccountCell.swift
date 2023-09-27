@@ -48,8 +48,8 @@ class AccountCell: UITableViewCell {
         self.moneybox = moneybox
         
         accountNameLabel.text = accountName
-        planValueLabel.text = "£\(planValue)"
-        moneyboxAmountLabel.text = "£\(moneybox)"
+        planValueLabel.text = planValue.asCurrency()
+        moneyboxAmountLabel.text = moneybox.asCurrency()
     }
     
     @objc
