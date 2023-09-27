@@ -14,7 +14,7 @@ The solution is broadly MVVM but borrows somewhat from the Redux/TCA architectur
 
 A simple `NavigationViewController` handles navigation with a back-button override to prevent return to the login screen.
 
-The app is split by screen, with a ViewController and Model for each one, as well as an associated Error type.  There are associated table cells for the Account Details screen which hold their own state due to their simplicity.  Each screen is in its own directory.
+The app is split by screen, with a ViewController and Model for each one, as well as an associated `Error` type.  There are associated table cells for the Account Details screen which hold their own state due to their simplicity.  Each screen is in its own directory.
 
 I moved miscellaneous files into a `Misc` directory to keep the top-level clean.  These include the `Info.plist`, assets, and fonts.  There's a `String` extension for email vaildation in the `Extensions` directory, as well as a convenience one for formatted currency rendering of `Doubles`.  Storyboards were similarly moved into a directory.
 
