@@ -79,6 +79,7 @@ class AccountsViewController: UIViewController {
                     
                 case .error:
                     self.setBusy(false)
+                    self.tableView.isHidden = true
                     self.errorLabel.isHidden = false
                     self.tryAgainButton.isHidden = false
                 }
