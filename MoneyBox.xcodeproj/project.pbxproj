@@ -19,8 +19,9 @@
 		000CFC572AC430E800D3A337 /* TestAccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC562AC430E800D3A337 /* TestAccountsViewModel.swift */; };
 		000CFC5A2AC4328A00D3A337 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC592AC4328A00D3A337 /* IQKeyboardManagerSwift */; };
 		000CFC5C2AC4339900D3A337 /* AccountsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC5B2AC4339900D3A337 /* AccountsError.swift */; };
-		000CFC5F2AC45DC700D3A337 /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC5E2AC45DC700D3A337 /* SkyFloatingLabelTextField */; };
 		000CFC612AC45E0F00D3A337 /* AccountDetailsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */; };
+		000CFC642AC462C700D3A337 /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC632AC462C700D3A337 /* JVFloatLabeledTextField */; };
+		000CFC662AC4661400D3A337 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC652AC4661300D3A337 /* String+EmailValidation.swift */; };
 		00FFD9702AC1C49E00774445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD96F2AC1C49E00774445 /* README.md */; };
 		00FFD9722AC1C4C400774445 /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD9712AC1C4C400774445 /* wireframe.png */; };
 		00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9752AC2D12D00774445 /* AccountsViewController.swift */; };
@@ -61,6 +62,7 @@
 		000CFC562AC430E800D3A337 /* TestAccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountsViewModel.swift; sourceTree = "<group>"; };
 		000CFC5B2AC4339900D3A337 /* AccountsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsError.swift; sourceTree = "<group>"; };
 		000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsError.swift; sourceTree = "<group>"; };
+		000CFC652AC4661300D3A337 /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
 		00FFD96F2AC1C49E00774445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00FFD9712AC1C4C400774445 /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wireframe.png; sourceTree = "<group>"; };
 		00FFD9742AC2C47300774445 /* README_submission.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_submission.md; sourceTree = "<group>"; };
@@ -88,8 +90,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B26EF47828881E7F003BFDF2 /* Networking in Frameworks */,
+				000CFC642AC462C700D3A337 /* JVFloatLabeledTextField in Frameworks */,
 				000CFC5A2AC4328A00D3A337 /* IQKeyboardManagerSwift in Frameworks */,
-				000CFC5F2AC45DC700D3A337 /* SkyFloatingLabelTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +204,7 @@
 				00FFD9782AC2D38A00774445 /* Storyboards */,
 				00FFD9772AC2D37D00774445 /* View Controllers */,
 				00FFD9792AC2D39500774445 /* Misc */,
+				000CFC652AC4661300D3A337 /* String+EmailValidation.swift */,
 			);
 			path = MoneyBox;
 			sourceTree = "<group>";
@@ -255,7 +258,7 @@
 			packageProductDependencies = (
 				B26EF47728881E7F003BFDF2 /* Networking */,
 				000CFC592AC4328A00D3A337 /* IQKeyboardManagerSwift */,
-				000CFC5E2AC45DC700D3A337 /* SkyFloatingLabelTextField */,
+				000CFC632AC462C700D3A337 /* JVFloatLabeledTextField */,
 			);
 			productName = MoneyBox;
 			productReference = B2CA46C8279350880041B3A5 /* MoneyBox.app */;
@@ -309,7 +312,7 @@
 			mainGroup = B2CA46BF279350880041B3A5;
 			packageReferences = (
 				000CFC582AC4328A00D3A337 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				000CFC5D2AC45DC700D3A337 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
+				000CFC622AC462C700D3A337 /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */,
 			);
 			productRefGroup = B2CA46C9279350880041B3A5 /* Products */;
 			projectDirPath = "";
@@ -356,6 +359,7 @@
 				000CFC4A2AC36B7000D3A337 /* AccountDetailsViewModel.swift in Sources */,
 				00FFD97F2AC2EEBA00774445 /* AccountsViewModel.swift in Sources */,
 				000CFC552AC4309300D3A337 /* LoginError.swift in Sources */,
+				000CFC662AC4661400D3A337 /* String+EmailValidation.swift in Sources */,
 				B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */,
 				00FFD97D2AC2D49500774445 /* LoginViewModel.swift in Sources */,
 				000CFC472AC36B5100D3A337 /* AccountDetailsViewController.swift in Sources */,
@@ -658,12 +662,12 @@
 				minimumVersion = 6.5.12;
 			};
 		};
-		000CFC5D2AC45DC700D3A337 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+		000CFC622AC462C700D3A337 /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField";
+			repositoryURL = "https://github.com/jverdi/JVFloatLabeledTextField";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				minimumVersion = 1.2.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -674,10 +678,10 @@
 			package = 000CFC582AC4328A00D3A337 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		000CFC5E2AC45DC700D3A337 /* SkyFloatingLabelTextField */ = {
+		000CFC632AC462C700D3A337 /* JVFloatLabeledTextField */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 000CFC5D2AC45DC700D3A337 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
-			productName = SkyFloatingLabelTextField;
+			package = 000CFC622AC462C700D3A337 /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */;
+			productName = JVFloatLabeledTextField;
 		};
 		B26EF47728881E7F003BFDF2 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;

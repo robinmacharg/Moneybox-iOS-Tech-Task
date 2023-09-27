@@ -35,7 +35,9 @@ final class LoginViewModel: ObservableObject {
     // MARK: - Functions
     
     private func updateFieldsFilledIn() {
-        let validCredentials = !(email?.isEmpty ?? true) && !(password?.isEmpty ?? true)
+        let validCredentials = !(email?.isEmpty ?? true)
+            && (email?.isEmail() ?? false)
+            && !(password?.isEmpty ?? true)
         state = .validCredentials(validCredentials)
     }
     

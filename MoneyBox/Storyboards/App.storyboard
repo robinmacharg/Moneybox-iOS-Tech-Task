@@ -51,31 +51,43 @@
                                             <constraint firstAttribute="width" secondItem="wUz-Z7-Tz3" secondAttribute="height" multiplier="15:8" id="NOh-ms-1U9"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-fH-dk5">
-                                        <rect key="frame" x="40" y="237" width="40.5" height="17"/>
-                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Dj-XO-JqQ" userLabel="Email Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Dj-XO-JqQ" userLabel="Email Text Field" customClass="JVFloatLabeledTextField">
                                         <rect key="frame" x="40" y="262" width="294" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" name="AccentColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderYPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="nxe-uw-h5I" id="zUZ-es-PRI"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkW-Ik-zef">
-                                        <rect key="frame" x="40" y="365" width="73" height="17"/>
-                                        <fontDescription key="fontDescription" name="ModernEra-Regular" family="Modern Era" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WAv-uY-tMJ" userLabel="Password text Field">
-                                        <rect key="frame" x="40" y="390" width="294" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WAv-uY-tMJ" userLabel="Password text Field" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="40" y="336" width="294" height="34"/>
                                         <accessibility key="accessibilityConfiguration" hint="Type your password here" identifier="login_password" label="Password"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" name="AccentColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderYPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="nxe-uw-h5I" id="WV6-jo-XmF"/>
                                         </connections>
@@ -118,19 +130,15 @@
                                 <color key="backgroundColor" name="GreyColor"/>
                                 <constraints>
                                     <constraint firstItem="Fed-Dx-rhO" firstAttribute="top" secondItem="bPY-aQ-5tu" secondAttribute="bottom" constant="34" id="8HW-51-c5Q"/>
-                                    <constraint firstItem="WAv-uY-tMJ" firstAttribute="leading" secondItem="YkW-Ik-zef" secondAttribute="leading" id="9Ty-GR-RFr"/>
-                                    <constraint firstItem="4Dj-XO-JqQ" firstAttribute="top" secondItem="O4U-fH-dk5" secondAttribute="bottom" constant="8" symbolic="YES" id="AsG-97-ZVS"/>
                                     <constraint firstItem="4Dj-XO-JqQ" firstAttribute="leading" secondItem="h9A-tB-uAf" secondAttribute="leading" constant="40" id="FBO-ao-mbr"/>
                                     <constraint firstAttribute="trailing" secondItem="4Dj-XO-JqQ" secondAttribute="trailing" constant="40" id="Gvy-0m-PzF"/>
                                     <constraint firstItem="Fed-Dx-rhO" firstAttribute="centerX" secondItem="h9A-tB-uAf" secondAttribute="centerX" id="L4d-Zj-42g"/>
                                     <constraint firstItem="4Dj-XO-JqQ" firstAttribute="centerX" secondItem="h9A-tB-uAf" secondAttribute="centerX" id="P02-Ln-BZL"/>
-                                    <constraint firstItem="WAv-uY-tMJ" firstAttribute="top" secondItem="YkW-Ik-zef" secondAttribute="bottom" constant="8" symbolic="YES" id="QNX-Ct-iHn"/>
-                                    <constraint firstItem="WAv-uY-tMJ" firstAttribute="top" secondItem="4Dj-XO-JqQ" secondAttribute="bottom" constant="94" id="Rbn-cF-RXY"/>
+                                    <constraint firstItem="WAv-uY-tMJ" firstAttribute="top" secondItem="4Dj-XO-JqQ" secondAttribute="bottom" constant="40" id="Rbn-cF-RXY"/>
                                     <constraint firstItem="wUz-Z7-Tz3" firstAttribute="centerX" secondItem="h9A-tB-uAf" secondAttribute="centerX" id="Rhr-Fk-hy8"/>
                                     <constraint firstItem="4Dj-XO-JqQ" firstAttribute="top" secondItem="wUz-Z7-Tz3" secondAttribute="bottom" constant="94" id="VOn-ts-EYG"/>
                                     <constraint firstAttribute="bottom" secondItem="RZb-t6-LwH" secondAttribute="bottom" id="Z6T-tB-JVt"/>
                                     <constraint firstAttribute="bottom" secondItem="bPY-aQ-5tu" secondAttribute="bottom" constant="100" id="aW2-f9-TX6"/>
-                                    <constraint firstItem="4Dj-XO-JqQ" firstAttribute="leading" secondItem="O4U-fH-dk5" secondAttribute="leading" id="aZw-0h-F87"/>
                                     <constraint firstItem="bPY-aQ-5tu" firstAttribute="centerX" secondItem="h9A-tB-uAf" secondAttribute="centerX" id="e68-if-go4"/>
                                     <constraint firstItem="WAv-uY-tMJ" firstAttribute="centerX" secondItem="h9A-tB-uAf" secondAttribute="centerX" id="qBJ-bV-Rki"/>
                                     <constraint firstAttribute="trailing" secondItem="RZb-t6-LwH" secondAttribute="trailing" id="uA5-Qc-d26"/>

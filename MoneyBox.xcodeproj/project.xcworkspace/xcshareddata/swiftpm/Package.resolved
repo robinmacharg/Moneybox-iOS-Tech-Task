@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "skyfloatinglabeltextfield",
+      "identity" : "jvfloatlabeledtextfield",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Skyscanner/SkyFloatingLabelTextField",
+      "location" : "https://github.com/jverdi/JVFloatLabeledTextField",
       "state" : {
-        "revision" : "a0750ebbc7311f3b3debf99c5e59338e854afa59",
-        "version" : "4.0.0"
+        "revision" : "69c0e80a2d0b9dac52ec37a164c9c5fe0e901038",
+        "version" : "1.2.5"
       }
     }
   ],
