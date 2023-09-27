@@ -12,13 +12,13 @@ Numerous screenshots are provided after the main body of text.
 
 The solution is broadly MVVM but borrows somewhat from the Redux/TCA architecture.  I took the decision not to implement a full reducer architecture due to time constraints and the size of the application.  Pragmatism won.  The Model holds the View _state_, and communicates changes in state to the View via an observed (Combine) state property.  The states are, for the most part, simple enums.  I stopped short of including all relevant state data as associated values.  Actions are also not encoded in a typesafe way due to the limited number of them (typically one per screen).  Taking this architectural approach still gives a nice uniform structure to both ViewControllers and Models, and allows for their extension in a predictable way.  It also simplifies testing by moving as much of the logic as possible to the Model.
 
-A simple `NavigationViewController` handles navigation with an back-button override to prevent return to the login screen.
+A simple `NavigationViewController` handles navigation with a back-button override to prevent return to the login screen.
 
 The app is split by screen, with a ViewController and Model for each one, as well as an associated Error type.  There are associated table cells for the Account Details screen which holds its own state due to its simplicity.  Each screen is in its own directory.
 
 I moved miscellaneous files into a Misc directory to keep the top-level clean.  These include the `Info.plist`, assets, and fonts.  There's a single `String` extension for email vaildation in the `Extensions` directory.  Storyboards were similarly moved into a directory.
 
-Error states are provided to all ViewControllers and error handling is implemented reasonably thoroughly.  To test e.g. the Accounts loading failure state it's necessary to e.g. remove the session token prior to the network call in `DataProvider`.
+Error states are provided to all ViewControllers and error handling is implemented reasonably thoroughly.  To test e.g. the Accounts loading failure state it's necessary to remove the session token prior to the network call in `DataProvider`.
 
 All screens load data asynchronously, where appropriate, with loading indicators.
 
@@ -29,6 +29,10 @@ Adding money to the Moneybox is reflected in the screen on completion of the req
 Files are documented to a level I think appropriate for the scale of the task.  For this simple an app the spec. is a good source of truth and the functionality is self-evident.  Files are split with `// MARK: - Section` dividers in a consistent way.  Interesting code has additional comments to try and answer the "why?" questions future developers might have.
 
 The 5 minute lockout on submitting invalid credentials too many times was unexpected, and the project spec would benefit from mentioning this.  I was much more careful testing login failures after that!
+
+Also worth noting that I've not given significant consideration to the session timeout.  This was mainly due to time constraints - waiting for five minutes each time to test code was not deemed a good use of my time! Obviously some form of - possibly preemptive - invisible reasuthentication is needed if there's an authentication error; this implies some more central store for known-valid credentials although for this app a simpler mechanism local to the accounts page would suffice.  I've avoided changing the provided Networking package.
+
+I've taken a best-guess at the correct fields in the Accounts API response.  There's a common alphanumeric ID in common between the `ProductResponse`s `Account`s but `ProductResponse` seemed to have all the info I needed.
 
 ## External dependencies
 
