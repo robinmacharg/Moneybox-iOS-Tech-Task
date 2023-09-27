@@ -8,15 +8,13 @@
 import Foundation
 import Networking
 
-
-
 final class LoginViewModel: ObservableObject {
     
-    enum State {
+    enum State: Equatable {
         case validCredentials(Bool)
         case loggingIn
         case loggedIn
-        case error(String)
+        case error(LoginError)
     }
     
     // MARK: - Published properties
@@ -27,6 +25,8 @@ final class LoginViewModel: ObservableObject {
     
     var dataProvider: DataProviderLogic
     var user: LoginResponse.User?
+    
+    // MARK: - Lifecycle
     
     init(dataProvider: DataProviderLogic) {
         self.dataProvider = dataProvider
@@ -53,30 +53,25 @@ final class LoginViewModel: ObservableObject {
     
     func login() {
         if let email, let password {
-            
             state = .loggingIn
-            
             DispatchQueue.global(qos: .userInitiated).async {
-//                let loginRequest = LoginRequest(
-//                    email: email,
-//                    password: password)
-                let loginRequest = LoginRequest(
-                    email: "test+ios2@moneyboxapp.com",
-                    password: "P455word12") // Valid
-//                let loginRequest = LoginRequest(
-//                    email: "test+ios2@moneyboxapp.com",
-//                    password: "P455word12X") // Invalid
+                let loginRequest = LoginRequest(email: email, password: password)
                 self.dataProvider.login(request: loginRequest) { result in
                     switch result {
                     case .success(let response):
                         SessionManager().setUserToken(response.session.bearerToken)
                         self.user = response.user
                         self.state = .loggedIn
-                    case .failure(let error):
-                        self.state = .error("Login Failed.  Please try again.")
+                    case .failure(_):
+                        self.state = .error(.loginFailed("Login Failed.  Please try again."))
                     }
                 }
             }
+        }
+        
+        // In reality we should never hit this due to the login button being disabled.
+        else {
+            state = .error(.loginDetailNotProvided)
         }
     }
 }

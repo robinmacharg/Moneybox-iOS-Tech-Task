@@ -27,11 +27,20 @@ class LoginViewController: UIViewController {
     private var model = LoginViewModel(dataProvider: DataProvider())
     private var bindings = Set<AnyCancellable>()
     
-    
     // MARK: - Actions
     
     @IBAction func login(_ sender: Any) {
         model.login()
+    }
+    
+    // This is purely a convenience for reviewers
+    @IBAction func prefillEmailAndPassword(_ sender: Any) {
+        let email = "test+ios2@moneyboxapp.com"
+        let password = "P455word12"
+        emailTextField.text = email
+        passwordTextField.text = password
+        model.email = email
+        model.password = password
     }
     
     // MARK: - Lifecycle
@@ -45,6 +54,8 @@ class LoginViewController: UIViewController {
         enableScreen(true)
     }
     
+    // MARK: - Methods
+    
     func enableScreen(_ enabled: Bool) {
         activityIndicator.isHidden = enabled
         self.formContainer.isUserInteractionEnabled = enabled
@@ -55,10 +66,7 @@ class LoginViewController: UIViewController {
         } else {
             self.activityIndicator.startAnimating()
         }
-        
     }
-    
-    // MARK: - Methods
     
     private func setUpBindings() {
         model.$state
@@ -75,9 +83,11 @@ class LoginViewController: UIViewController {
                 case .loggedIn:
                     self.performSegue(withIdentifier: "login_accounts", sender: self)
                     
-                case .error(let message):
+                case .error(let error):
                     self.enableScreen(true)
-                    self.errorMessage.text = message
+                    if case .loginFailed(let message) = error {
+                        self.errorMessage.text = message
+                    }
                 }
             }
             .store(in: &bindings)
@@ -99,7 +109,13 @@ extension LoginViewController {
     }
 }
 
+// MARK: - <UITextFieldDelegate>
+
 extension LoginViewController: UITextFieldDelegate {
+    
+    /**
+     * Update the model when the user enters text
+     */
     func textField(
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,

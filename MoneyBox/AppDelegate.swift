@@ -6,16 +6,15 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow? 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        UIFont.familyNames.forEach({ familyName in
-//            let fontNames = UIFont.fontNames(forFamilyName: familyName)
-//            print(familyName, fontNames)
-//        })
-
+        // Note: Undiagnosed constraint errors when this is enabled.
+        //       However it does give us keyboard avoidance with a single line.  Pragmatically left in.
+        IQKeyboardManager.shared.enable = true
         return true
     }
 }

@@ -26,9 +26,12 @@ class AccountsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var model = AccountsViewModel()
+    // MARK: - Properties
+    
+    private var model = AccountsViewModel(dataProvider: DataProvider())
     private var bindings = Set<AnyCancellable>()
     
+    /// Information to be passed to the account details screen
     private var segueInfo: SegueInfo?
     
     // MARK: - Lifecycle
@@ -40,16 +43,14 @@ class AccountsViewController: UIViewController {
         planValue.text = ""
         planValueLabel.isHidden = true
         name.isHidden = true
-        tableView.isHidden = true
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
-        
-        model.loadData()
+        setBusy(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        self.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = true
+        setBusy(true)
+        model.loadData()
     }
     
     private func setUpBindings() {
@@ -61,50 +62,58 @@ class AccountsViewController: UIViewController {
                     break
                     
                 case .loading:
-                    self.activityIndicator.isHidden = false
-                    self.activityIndicator.startAnimating()
+                    self.setBusy(true)
                     
                 case .loaded:
                     self.planValue.text = "£\(self.model.totalPlanValue ?? 0)"
                     self.name.text = "Hello \(self.model.user?.firstName ?? "")!"
                     self.planValueLabel.isHidden = false
                     self.name.isHidden = false
-                    self.tableView.isHidden = false
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
+                    self.setBusy(false)
                     self.tableView.reloadData()
                     
-                case .error(_, _):
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
+                case .error:
+                    self.setBusy(false)
                 }
             }
             .store(in: &bindings)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    //  MARK: - Methods
     
+    func setBusy(_ busy: Bool) {
+        if busy {
+            self.tableView.layer.opacity = 0.5
+            self.tableView.isUserInteractionEnabled = false
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+        }
+        else {
+            self.tableView.layer.opacity = 1.0
+            self.tableView.isUserInteractionEnabled = true
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+        }
+    }
 }
 
 // MARK: - Navigation
 
 extension AccountsViewController {
+    /**
+     * Called by ancestors to load data.  Proxies to the model.
+     */
     func configure(user: LoginResponse.User) {
         model.configure(user: user)
     }
     
+    /**
+     * Load the account details into the details view controller
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "accounts_details":
-            if let user = model.user, let segueInfo {
+            if let segueInfo {
                 (segue.destination as? AccountDetailsViewController)?.configure(
                     account: segueInfo.account,
                     planValue: segueInfo.planValue,
@@ -146,23 +155,20 @@ extension AccountsViewController: UITableViewDataSource {
                 return tableView.dequeueReusableCell(withIdentifier: "error", for: indexPath)
             }
         }
+
+        // In a real app we'd create a generic error cell by hand and return that
         fatalError("Can't dequeue cell")
     }
-}
-
-// MARK: - <UITableViewDelegate>
-
-extension AccountsViewController: UITableViewDelegate {
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        tableView.deselectRow(at: indexPath, animated: true)
-    //    }
 }
 
 // MARK: - <AccountCellDelegate>
 
 extension AccountsViewController: AccountCellDelegate {
+    
+    /**
+     * Called by the cell when tapped
+     */
     func tapped(segueInfo: SegueInfo) {
-//        print("tapped", id)
         self.segueInfo = segueInfo
         self.performSegue(withIdentifier: "accounts_details", sender: self)
     }

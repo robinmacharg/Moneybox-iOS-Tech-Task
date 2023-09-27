@@ -16,7 +16,7 @@ class AccountDetailsViewModel: ObservableObject {
         case loaded
         case sendingMoney
         case sent
-        case error(message: String, details: String? = nil)
+        case error(AccountDetailsError)
     }
     
     // MARK: - Properties
@@ -32,7 +32,13 @@ class AccountDetailsViewModel: ObservableObject {
     
     // MARK: - Private properties
     
-    private var dataProvider = DataProvider()
+    private var dataProvider: DataProviderLogic
+    
+    // MARK: - Lifecycle
+    
+    init(dataProvider: DataProviderLogic) {
+        self.dataProvider = dataProvider
+    }
     
     // MARK: - Methods
     
@@ -63,7 +69,7 @@ class AccountDetailsViewModel: ObservableObject {
                             self.moneybox = response.moneybox
                             self.state = .sent
                         case .failure(_):
-                            self.state = .error(message: "Failed to add money")
+                            self.state = .error(.failedToAddMoney)
                         }
                     }
             }

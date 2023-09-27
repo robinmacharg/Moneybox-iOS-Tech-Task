@@ -14,7 +14,7 @@ final class AccountsViewModel: ObservableObject {
         case initial
         case loading
         case loaded
-        case error(message: String, details: String? = nil)
+        case error(AccountsError)
     }
     
     // MARK: - Properties
@@ -30,7 +30,14 @@ final class AccountsViewModel: ObservableObject {
     
     // MARK: - Private properties
     
-    private var dataProvider = DataProvider()
+    private var dataProvider: DataProviderLogic
+    
+    // MARK: - Lifecycle
+    
+    init(dataProvider: DataProviderLogic) {
+        self.dataProvider = dataProvider
+    }
+    
     
     // MARK: - Methods
     
@@ -48,11 +55,8 @@ final class AccountsViewModel: ObservableObject {
                     self.totalPlanValue = response.totalPlanValue ?? 0.0
                     self.state = .loaded
                     
-                case .failure(let error):
-                    self.state = .error(
-                        message: "Failed to load data",
-                        details: error.localizedDescription
-                    )
+                case .failure(_):
+                    self.state = .error(.accountRetrievalError)
                 }
             }
         }

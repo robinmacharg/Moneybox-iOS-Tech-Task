@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Networking
 
 class AccountDetailsViewController: UIViewController {
 
@@ -17,16 +18,18 @@ class AccountDetailsViewController: UIViewController {
     @IBOutlet weak var planValue: UILabel!
     @IBOutlet weak var moneyboxLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     // MARK: - Properties
     
-    private var model = AccountDetailsViewModel()
+    private var model = AccountDetailsViewModel(dataProvider: DataProvider())
     private var bindings = Set<AnyCancellable>()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorLabel.text = ""
         setUpBindings()
         setBusy(false)
         updateScreen()
@@ -41,6 +44,8 @@ class AccountDetailsViewController: UIViewController {
     // MARK: - Methods
     
     func setUpBindings() {
+        
+        // Listen for model state changes, updating the UI appropriately
         model.$state
             .receive(on: DispatchQueue.main)
             .sink { state in
@@ -62,8 +67,9 @@ class AccountDetailsViewController: UIViewController {
                     self.setBusy(false)
                     self.updateScreen()
 
-                case .error(_):
+                case .error(let error):
                     self.setBusy(false)
+                    self.errorLabel.text = error.description()
                 }
             }
             .store(in: &bindings)
@@ -75,8 +81,12 @@ class AccountDetailsViewController: UIViewController {
         moneyboxLabel.text = "£\(model.moneybox ?? 0.0)"
     }
     
+    /**
+     * Set the visual state to busy or free
+     */
     func setBusy(_ busy: Bool) {
         if busy {
+            self.errorLabel.text = ""
             self.containerView.layer.opacity = 0.5
             self.containerView.isUserInteractionEnabled = false
             self.activityIndicator.isHidden = false
@@ -92,6 +102,9 @@ class AccountDetailsViewController: UIViewController {
     
     // MARK: - Navigation
 
+    /**
+     * Called by ancestors to load data.  Proxies to the model.
+     */
     func configure(
         account: String,
         planValue: Double,

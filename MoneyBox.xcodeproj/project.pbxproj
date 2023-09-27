@@ -12,6 +12,15 @@
 		000CFC472AC36B5100D3A337 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC462AC36B5100D3A337 /* AccountDetailsViewController.swift */; };
 		000CFC4A2AC36B7000D3A337 /* AccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC492AC36B7000D3A337 /* AccountDetailsViewModel.swift */; };
 		000CFC4C2AC37B2600D3A337 /* AccountCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC4B2AC37B2600D3A337 /* AccountCellDelegate.swift */; };
+		000CFC4E2AC413FF00D3A337 /* DataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC4D2AC413FF00D3A337 /* DataProviderMock.swift */; };
+		000CFC502AC4156100D3A337 /* TestLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC4F2AC4156100D3A337 /* TestLoginViewModel.swift */; };
+		000CFC532AC42C2200D3A337 /* LoginFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC512AC429C500D3A337 /* LoginFail.json */; };
+		000CFC552AC4309300D3A337 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC542AC4309300D3A337 /* LoginError.swift */; };
+		000CFC572AC430E800D3A337 /* TestAccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC562AC430E800D3A337 /* TestAccountsViewModel.swift */; };
+		000CFC5A2AC4328A00D3A337 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC592AC4328A00D3A337 /* IQKeyboardManagerSwift */; };
+		000CFC5C2AC4339900D3A337 /* AccountsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC5B2AC4339900D3A337 /* AccountsError.swift */; };
+		000CFC5F2AC45DC700D3A337 /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC5E2AC45DC700D3A337 /* SkyFloatingLabelTextField */; };
+		000CFC612AC45E0F00D3A337 /* AccountDetailsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */; };
 		00FFD9702AC1C49E00774445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD96F2AC1C49E00774445 /* README.md */; };
 		00FFD9722AC1C4C400774445 /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD9712AC1C4C400774445 /* wireframe.png */; };
 		00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9752AC2D12D00774445 /* AccountsViewController.swift */; };
@@ -45,6 +54,13 @@
 		000CFC462AC36B5100D3A337 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		000CFC492AC36B7000D3A337 /* AccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewModel.swift; sourceTree = "<group>"; };
 		000CFC4B2AC37B2600D3A337 /* AccountCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellDelegate.swift; sourceTree = "<group>"; };
+		000CFC4D2AC413FF00D3A337 /* DataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderMock.swift; sourceTree = "<group>"; };
+		000CFC4F2AC4156100D3A337 /* TestLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewModel.swift; sourceTree = "<group>"; };
+		000CFC512AC429C500D3A337 /* LoginFail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginFail.json; sourceTree = "<group>"; };
+		000CFC542AC4309300D3A337 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		000CFC562AC430E800D3A337 /* TestAccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountsViewModel.swift; sourceTree = "<group>"; };
+		000CFC5B2AC4339900D3A337 /* AccountsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsError.swift; sourceTree = "<group>"; };
+		000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsError.swift; sourceTree = "<group>"; };
 		00FFD96F2AC1C49E00774445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00FFD9712AC1C4C400774445 /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wireframe.png; sourceTree = "<group>"; };
 		00FFD9742AC2C47300774445 /* README_submission.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_submission.md; sourceTree = "<group>"; };
@@ -72,6 +88,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B26EF47828881E7F003BFDF2 /* Networking in Frameworks */,
+				000CFC5A2AC4328A00D3A337 /* IQKeyboardManagerSwift in Frameworks */,
+				000CFC5F2AC45DC700D3A337 /* SkyFloatingLabelTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +108,7 @@
 			children = (
 				000CFC462AC36B5100D3A337 /* AccountDetailsViewController.swift */,
 				000CFC492AC36B7000D3A337 /* AccountDetailsViewModel.swift */,
+				000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
@@ -139,6 +158,7 @@
 			children = (
 				B228EA692880B30B00B35F16 /* LoginViewController.swift */,
 				00FFD97C2AC2D49500774445 /* LoginViewModel.swift */,
+				000CFC542AC4309300D3A337 /* LoginError.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -150,6 +170,7 @@
 				00FFD97E2AC2EEBA00774445 /* AccountsViewModel.swift */,
 				00FFD9802AC2F55800774445 /* AccountCell.swift */,
 				000CFC4B2AC37B2600D3A337 /* AccountCellDelegate.swift */,
+				000CFC5B2AC4339900D3A337 /* AccountsError.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -190,6 +211,9 @@
 			children = (
 				B2CA47662794D69A0041B3A5 /* StubData.swift */,
 				B2CA47682794D6AC0041B3A5 /* ResponseJsons */,
+				000CFC4D2AC413FF00D3A337 /* DataProviderMock.swift */,
+				000CFC4F2AC4156100D3A337 /* TestLoginViewModel.swift */,
+				000CFC562AC430E800D3A337 /* TestAccountsViewModel.swift */,
 			);
 			path = MoneyBoxTests;
 			sourceTree = "<group>";
@@ -198,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B2CA47692794D6D70041B3A5 /* LoginSucceed.json */,
+				000CFC512AC429C500D3A337 /* LoginFail.json */,
 				B2CA47B2279604A10041B3A5 /* Accounts.json */,
 			);
 			path = ResponseJsons;
@@ -229,6 +254,8 @@
 			name = MoneyBox;
 			packageProductDependencies = (
 				B26EF47728881E7F003BFDF2 /* Networking */,
+				000CFC592AC4328A00D3A337 /* IQKeyboardManagerSwift */,
+				000CFC5E2AC45DC700D3A337 /* SkyFloatingLabelTextField */,
 			);
 			productName = MoneyBox;
 			productReference = B2CA46C8279350880041B3A5 /* MoneyBox.app */;
@@ -281,6 +308,8 @@
 			);
 			mainGroup = B2CA46BF279350880041B3A5;
 			packageReferences = (
+				000CFC582AC4328A00D3A337 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				000CFC5D2AC45DC700D3A337 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
 			);
 			productRefGroup = B2CA46C9279350880041B3A5 /* Products */;
 			projectDirPath = "";
@@ -304,6 +333,7 @@
 				B2CA46D52793508A0041B3A5 /* Assets.xcassets in Resources */,
 				000CFC442AC3412600D3A337 /* ModernEra-Regular.ttf in Resources */,
 				B228EA6C2880B30B00B35F16 /* App.storyboard in Resources */,
+				000CFC532AC42C2200D3A337 /* LoginFail.json in Resources */,
 				B2CA47B42796052F0041B3A5 /* Accounts.json in Resources */,
 				000CFC452AC3412600D3A337 /* ModernEra-Bold.ttf in Resources */,
 			);
@@ -325,11 +355,14 @@
 			files = (
 				000CFC4A2AC36B7000D3A337 /* AccountDetailsViewModel.swift in Sources */,
 				00FFD97F2AC2EEBA00774445 /* AccountsViewModel.swift in Sources */,
+				000CFC552AC4309300D3A337 /* LoginError.swift in Sources */,
 				B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */,
 				00FFD97D2AC2D49500774445 /* LoginViewModel.swift in Sources */,
 				000CFC472AC36B5100D3A337 /* AccountDetailsViewController.swift in Sources */,
+				000CFC5C2AC4339900D3A337 /* AccountsError.swift in Sources */,
 				00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */,
 				B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */,
+				000CFC612AC45E0F00D3A337 /* AccountDetailsError.swift in Sources */,
 				00FFD9812AC2F55800774445 /* AccountCell.swift in Sources */,
 				000CFC4C2AC37B2600D3A337 /* AccountCellDelegate.swift in Sources */,
 			);
@@ -339,7 +372,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000CFC4E2AC413FF00D3A337 /* DataProviderMock.swift in Sources */,
 				B2CA47672794D69A0041B3A5 /* StubData.swift in Sources */,
+				000CFC572AC430E800D3A337 /* TestAccountsViewModel.swift in Sources */,
+				000CFC502AC4156100D3A337 /* TestLoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +649,36 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		000CFC582AC4328A00D3A337 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.12;
+			};
+		};
+		000CFC5D2AC45DC700D3A337 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		000CFC592AC4328A00D3A337 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000CFC582AC4328A00D3A337 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		000CFC5E2AC45DC700D3A337 /* SkyFloatingLabelTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000CFC5D2AC45DC700D3A337 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
+			productName = SkyFloatingLabelTextField;
+		};
 		B26EF47728881E7F003BFDF2 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
