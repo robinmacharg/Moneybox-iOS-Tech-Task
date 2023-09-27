@@ -70,8 +70,8 @@ class AccountsViewController: UIViewController {
                     self.setBusy(true)
                     
                 case .loaded:
-                    self.planValue.text = "£\(self.model.totalPlanValue ?? 0)"
                     self.name.text = "Hello \(self.model.user?.firstName ?? "")!"
+                    self.planValue.text = self.model.totalPlanValue?.asCurrency() ?? "0.00"
                     self.planValueLabel.isHidden = false
                     self.name.isHidden = false
                     self.setBusy(false)
