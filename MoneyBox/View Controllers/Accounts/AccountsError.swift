@@ -8,12 +8,12 @@
 import Foundation
 
 enum AccountsError: Error, Equatable {
-    case accountRetrievalError
+    case accountRetrievalError(String? = nil)
     
     func desription() -> String {
         switch self {
         case .accountRetrievalError:
             return "Failed to retrieve accounts"
-        }
+       }
     }
 }

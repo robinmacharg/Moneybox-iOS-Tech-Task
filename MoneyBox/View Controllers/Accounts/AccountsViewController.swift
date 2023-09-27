@@ -25,6 +25,8 @@ class AccountsViewController: UIViewController {
     @IBOutlet weak var planValueLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var tryAgainButton: UIButton!
     
     // MARK: - Properties
     
@@ -43,14 +45,15 @@ class AccountsViewController: UIViewController {
         planValue.text = ""
         planValueLabel.isHidden = true
         name.isHidden = true
+        errorLabel.isHidden = true
+        tryAgainButton.isHidden = true
         setBusy(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
-        setBusy(true)
-        model.loadData()
+        loadData()
     }
     
     private func setUpBindings() {
@@ -74,15 +77,31 @@ class AccountsViewController: UIViewController {
                     
                 case .error:
                     self.setBusy(false)
+                    self.errorLabel.isHidden = false
+                    self.tryAgainButton.isHidden = false
                 }
             }
             .store(in: &bindings)
     }
     
+    // MARK: - Actions
+    
+    @IBAction func tryAgain(_ sender: Any) {
+        loadData()
+    }
+    
+    
     //  MARK: - Methods
+    
+    func loadData() {
+        setBusy(true)
+        model.loadData()
+    }
     
     func setBusy(_ busy: Bool) {
         if busy {
+            self.errorLabel.isHidden = true
+            self.tryAgainButton.isHidden = true
             self.tableView.layer.opacity = 0.5
             self.tableView.isUserInteractionEnabled = false
             self.activityIndicator.isHidden = false
@@ -155,7 +174,7 @@ extension AccountsViewController: UITableViewDataSource {
                 return tableView.dequeueReusableCell(withIdentifier: "error", for: indexPath)
             }
         }
-
+        
         // In a real app we'd create a generic error cell by hand and return that
         fatalError("Can't dequeue cell")
     }

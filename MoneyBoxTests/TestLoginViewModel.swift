@@ -16,7 +16,7 @@ final class TestLoginViewModel: XCTestCase {
     private let email = "test@moneybox.com"
     private let password = "password123"
     
-    func testValidLogin() throws {
+    func testValidLogin() {
         // SUT == System Under Test
         let sut = LoginViewModel(dataProvider: DataProviderMock(succeed: true))
         sut.email = email
@@ -26,15 +26,13 @@ final class TestLoginViewModel: XCTestCase {
         var expectedStates: [LoginViewModel.State] = [.validCredentials(true), .loggingIn, .loggedIn]
         
         sut.$state
-            .sink(receiveCompletion: { completion in
-                XCTAssertTrue(expectedStates.isEmpty)
-            }, receiveValue: { state in
+            .sink { state in
                 XCTAssertEqual(state, expectedStates.first)
                 expectedStates.remove(at: 0)
                 if state == .loggedIn {
                     expectation.fulfill()
                 }
-            })
+            }
             .store(in: &bindings)
         
         XCTAssertNil(Authentication.token)
@@ -44,7 +42,7 @@ final class TestLoginViewModel: XCTestCase {
         XCTAssertTrue(expectedStates.isEmpty)
     }
     
-    func testInvalidLoginNoEmailPassword() throws {
+    func testInvalidLoginNoEmailPassword() {
         let sut = LoginViewModel(dataProvider: DataProviderMock(succeed: true))
         sut.email = nil
         sut.password = nil
@@ -67,7 +65,7 @@ final class TestLoginViewModel: XCTestCase {
         XCTAssertTrue(expectedStates.isEmpty)
     }
     
-    func testInvalidLoginBadCredentials() throws {
+    func testInvalidLoginBadCredentials() {
         let sut = LoginViewModel(dataProvider: DataProviderMock(succeed: false))
         sut.email = email
         sut.password = password

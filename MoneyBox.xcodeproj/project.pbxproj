@@ -22,6 +22,7 @@
 		000CFC612AC45E0F00D3A337 /* AccountDetailsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */; };
 		000CFC642AC462C700D3A337 /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 000CFC632AC462C700D3A337 /* JVFloatLabeledTextField */; };
 		000CFC662AC4661400D3A337 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CFC652AC4661300D3A337 /* String+EmailValidation.swift */; };
+		000CFC682AC4730C00D3A337 /* AccountsFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 000CFC672AC4730C00D3A337 /* AccountsFail.json */; };
 		00FFD9702AC1C49E00774445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD96F2AC1C49E00774445 /* README.md */; };
 		00FFD9722AC1C4C400774445 /* wireframe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FFD9712AC1C4C400774445 /* wireframe.png */; };
 		00FFD9762AC2D12D00774445 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFD9752AC2D12D00774445 /* AccountsViewController.swift */; };
@@ -36,7 +37,7 @@
 		B2CA46D82793508A0041B3A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CA46D62793508A0041B3A5 /* LaunchScreen.storyboard */; };
 		B2CA47672794D69A0041B3A5 /* StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA47662794D69A0041B3A5 /* StubData.swift */; };
 		B2CA47712794D8E50041B3A5 /* LoginSucceed.json in Resources */ = {isa = PBXBuildFile; fileRef = B2CA47692794D6D70041B3A5 /* LoginSucceed.json */; };
-		B2CA47B42796052F0041B3A5 /* Accounts.json in Resources */ = {isa = PBXBuildFile; fileRef = B2CA47B2279604A10041B3A5 /* Accounts.json */; };
+		B2CA47B42796052F0041B3A5 /* AccountsSucceed.json in Resources */ = {isa = PBXBuildFile; fileRef = B2CA47B2279604A10041B3A5 /* AccountsSucceed.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		000CFC5B2AC4339900D3A337 /* AccountsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsError.swift; sourceTree = "<group>"; };
 		000CFC602AC45E0F00D3A337 /* AccountDetailsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsError.swift; sourceTree = "<group>"; };
 		000CFC652AC4661300D3A337 /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
+		000CFC672AC4730C00D3A337 /* AccountsFail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AccountsFail.json; sourceTree = "<group>"; };
 		00FFD96F2AC1C49E00774445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00FFD9712AC1C4C400774445 /* wireframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wireframe.png; sourceTree = "<group>"; };
 		00FFD9742AC2C47300774445 /* README_submission.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_submission.md; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		B2CA46DE2793508A0041B3A5 /* MoneyBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CA47662794D69A0041B3A5 /* StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubData.swift; sourceTree = "<group>"; };
 		B2CA47692794D6D70041B3A5 /* LoginSucceed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginSucceed.json; sourceTree = "<group>"; };
-		B2CA47B2279604A10041B3A5 /* Accounts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Accounts.json; sourceTree = "<group>"; };
+		B2CA47B2279604A10041B3A5 /* AccountsSucceed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AccountsSucceed.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000B5BD22AC484AF008EF505 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				000CFC652AC4661300D3A337 /* String+EmailValidation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		000CFC482AC36B5600D3A337 /* AccountDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +214,7 @@
 				00FFD9782AC2D38A00774445 /* Storyboards */,
 				00FFD9772AC2D37D00774445 /* View Controllers */,
 				00FFD9792AC2D39500774445 /* Misc */,
-				000CFC652AC4661300D3A337 /* String+EmailValidation.swift */,
+				000B5BD22AC484AF008EF505 /* Extensions */,
 			);
 			path = MoneyBox;
 			sourceTree = "<group>";
@@ -226,7 +236,8 @@
 			children = (
 				B2CA47692794D6D70041B3A5 /* LoginSucceed.json */,
 				000CFC512AC429C500D3A337 /* LoginFail.json */,
-				B2CA47B2279604A10041B3A5 /* Accounts.json */,
+				B2CA47B2279604A10041B3A5 /* AccountsSucceed.json */,
+				000CFC672AC4730C00D3A337 /* AccountsFail.json */,
 			);
 			path = ResponseJsons;
 			sourceTree = "<group>";
@@ -335,9 +346,10 @@
 				B2CA47712794D8E50041B3A5 /* LoginSucceed.json in Resources */,
 				B2CA46D52793508A0041B3A5 /* Assets.xcassets in Resources */,
 				000CFC442AC3412600D3A337 /* ModernEra-Regular.ttf in Resources */,
+				000CFC682AC4730C00D3A337 /* AccountsFail.json in Resources */,
 				B228EA6C2880B30B00B35F16 /* App.storyboard in Resources */,
 				000CFC532AC42C2200D3A337 /* LoginFail.json in Resources */,
-				B2CA47B42796052F0041B3A5 /* Accounts.json in Resources */,
+				B2CA47B42796052F0041B3A5 /* AccountsSucceed.json in Resources */,
 				000CFC452AC3412600D3A337 /* ModernEra-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,7 +540,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7DM2UT7C8G;
+				DEVELOPMENT_TEAM = 69VQ8X8JJ7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyBox/Misc/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
@@ -543,7 +555,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = moneybox;
+				PRODUCT_BUNDLE_IDENTIFIER = "rmm-moneybox";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -558,7 +570,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7DM2UT7C8G;
+				DEVELOPMENT_TEAM = 69VQ8X8JJ7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyBox/Misc/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
@@ -573,7 +585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = moneybox;
+				PRODUCT_BUNDLE_IDENTIFIER = "rmm-moneybox";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

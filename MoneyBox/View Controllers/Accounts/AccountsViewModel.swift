@@ -10,7 +10,7 @@ import Networking
 
 final class AccountsViewModel: ObservableObject {
     
-    enum State {
+    enum State: Equatable {
         case initial
         case loading
         case loaded
@@ -38,7 +38,6 @@ final class AccountsViewModel: ObservableObject {
         self.dataProvider = dataProvider
     }
     
-    
     // MARK: - Methods
     
     func configure(user: LoginResponse.User) {
@@ -55,8 +54,10 @@ final class AccountsViewModel: ObservableObject {
                     self.totalPlanValue = response.totalPlanValue ?? 0.0
                     self.state = .loaded
                     
-                case .failure(_):
-                    self.state = .error(.accountRetrievalError)
+                case .failure(let error):
+                    self.productResponses = []
+                    self.totalPlanValue = 0.0
+                    self.state = .error(.accountRetrievalError(error.localizedDescription))
                 }
             }
         }

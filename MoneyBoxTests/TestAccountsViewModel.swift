@@ -6,30 +6,55 @@
 //
 
 import XCTest
+import Combine
+@testable import MoneyBox
+@testable import Networking
 
 final class TestAccountsViewModel: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    private var bindings = Set<AnyCancellable>()
+    
+    func testValidAccounts() {
+        let sut = AccountsViewModel(dataProvider: DataProviderMock(succeed: true))
+        let expectation = XCTestExpectation(description: "Login successfully")
+        var expectedStates: [AccountsViewModel.State] = [.initial, .loading, .loaded]
+        
+        sut.$state
+            .sink { state in
+                XCTAssertEqual(state, expectedStates.first)
+                expectedStates.remove(at: 0)
+                if expectedStates.isEmpty {
+                    expectation.fulfill()
+                }
+            }
+            .store(in: &bindings)
+        
+        sut.loadData()
+        wait(for: [expectation], timeout: 5)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testAccountsFailToLoad() throws {
+        let sut = AccountsViewModel(dataProvider: DataProviderMock(succeed: false))
+        let expectation = XCTestExpectation(description: "Login successfully")
+        // All AccountsResponse values are optional, so we will always end up in a .loaded state
+        // This points to a tweak needed in ingestion to highlight that the response
+        // was unexpected.  Should we treat nil as an error (and [] as success?)
+        // Left in as a point for discussion.
+        var expectedStates: [AccountsViewModel.State] = [.initial, .loading, .loaded]
+        
+        sut.$state
+            .sink { state in
+                XCTAssertEqual(state, expectedStates.first)
+                expectedStates.remove(at: 0)
+                if expectedStates.isEmpty {
+                    expectation.fulfill()
+                }
+            }
+            .store(in: &bindings)
+        
+        sut.loadData()
+        wait(for: [expectation], timeout: 5)
+        let productResponses = try XCTUnwrap(sut.productResponses)
+        XCTAssertTrue(productResponses.isEmpty)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

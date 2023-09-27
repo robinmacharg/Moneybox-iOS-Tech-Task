@@ -1,38 +1,78 @@
 # Moneybox iOS Technical Challenge - Developer notes
 
-This file outlines my thinking in tackling the Technical Challenge.
+## Running the app
 
-## Initial thoughts
+The app was built on a MacbookAir (2020) using Xcode 15.0.  It's pure Swift/UIKit.  It's been tested to run on an iPhone 15 Pro simulator with iOS 17.0.  The project file and settings have, as far as possible, been left untouched; the app still targets iOS 13+ but bundle ID and provisioning were changed to allow on-device testing.
 
-Unordered observations on reading the brief.
+For the convenience of the assessor there's an off-spec button at the bottom of the login screen to pre-fill the email/password fields with the provided valid credentials.
 
-- Does it build and run as-is from initial checkout?  Yes.  Xcode 15.0, iPhone 15 simulator, built on a 2020 13" MacBook Air. No icon.
-- Three screens.  Build all or progress through in turn?
-- UIKit preferred.  So, let's avoid MMVC. MVVM?  For this that's more straightforward than e.g. VIPER.  Some scope for TCA/Redux?  Could include a simple off-the-shelf reducer.    
-- Testing... MVVM is also then suggested to move as much of the business logic out of the controller. 
-- Accessibility.  Noted.  Also, Dark/light?
-- Existing code structure... what have we got? Network stack is provided; will need to be tested early on.  Less important to test these, the assumption being that since they're provided they should be OK.  But assumptions can always be challenged.
-- Only target iPhone?  Only make allowances for e.g. iPad if there's time.  Different screen sizes should be accommodated.  Check on SE and Max versions.
-- Git - master branch will suffice for now.  No need for more advanced strategy.  .gitignore doesn't exclude .DS_Store
+Numerous screenshots are provided after the main body of text.
 
-## Plan of attack
+## Architecture and development
 
-- Icon
-    - Quick search doen't throw up anything large enough.  Playstore.  Good enough for now.  Converted and added.
-- Updated .gitignore
-- Bring the README and wireframe into the project for ease of access.
-- Design screens.  The first two initially, to then unblock login functionality.  Eschew niceties - floating placeholders, fonts etc.
-- Grabbed webfonts, converted from `.woff` to `.ttf`, added to app, restyled app text.  
+The solution is broadly MVVM but borrows somewhat from the Redux/TCA architecture.  I took the decision not to implement a full reducer architecture due to time constraints and the size of the application.  Pragmatism won.  The Model holds the View _state_, and communicates changes in state to the View via an observed (Combine) state property.  The states are, for the most part, simple enums.  I stopped short of including all relevant state data as associated values.  Actions are also not encoded in a typesafe way due to the limited number of them (typically one per screen).  Taking this architectural approach still gives a nice uniform structure to both ViewControllers and Models, and allows for their extension in a predictable way.  It also simplifies testing by moving as much of the logic as possible to the Model.
 
-## Notes
+A simple `NavigationViewController` handles navigation with an back-button override to prevent return to the login screen.
 
-- Bug in textField/shouldChangeCharactersIn on simulator...
-- Test on real device... iPhone needs updated to iOS17... tick, tick, tick 
-- Invalid credentials cause 5min lockout. 
+The app is split by screen, with a ViewController and Model for each one, as well as an associated Error type.  There are associated table cells for the Account Details screen which holds its own state due to its simplicity.  Each screen is in its own directory.
 
+I moved miscellaneous files into a Misc directory to keep the top-level clean.  These include the `Info.plist`, assets, and fonts.  There's a single `String` extension for email vaildation in the `Extensions` directory.  Storyboards were similarly moved into a directory.
 
-## TODO
+Error states are provided to all ViewControllers and error handling is implemented reasonably thoroughly.  To test e.g. the Accounts loading failure state it's necessary to e.g. remove the session token prior to the network call in `DataProvider`.
 
-- Email validation
-- Floating placeholders
-- Font
+All screens load data asynchronously, where appropriate, with loading indicators.
+
+There appears to be a bug in the simulator implementation of `UITextFieldDelegate`s `shouldChangeCharactersIn` that causes characters to be deleted.  This does not appear to affect real devices.
+
+Adding money to the Moneybox is reflected in the screen on completion of the request.  The Accounts screen reloads on `willAppear` to ensure it always has up-to-date data.
+
+Files are documented to a level I think appropriate for the scale of the task.  For this simple an app the spec. is a good source of truth and the functionality is self-evident.  Files are split with `// MARK: - Section` dividers in a consistent way.  Interesting code has additional comments to try and answer the "why?" questions future developers might have.
+
+The 5 minute lockout on submitting invalid credentials too many times was unexpected, and the project spec would benefit from mentioning this.  I was much more careful testing login failures after that!
+
+## External dependencies
+
+Two external package dependencies have been included:
+
+- [`IQKeyboardManagerSwift`](https://github.com/hackiftekhar/IQKeyboardManager) - for keyboard avoidance by TextFields
+- [`JVFloatLabeledTextField`](https://github.com/jverdi/JVFloatLabeledTextField) - to float placeholder text above TextFields.
+
+Neither are necessary but both provide a small level of flourish to the UI.
+
+I've also added the Moneybox fonts to the app.  These were sourced from the website as `.woff` files and converted to `.ttf` using an online tool.
+
+An icon was sourced from the PlayStore.  Its size is not ideal but I believe it suffices for the scope of the task.
+
+## Testing
+
+I've added unit tests for both the `LoginViewModel` and `AccountsViewModel`.  Both are similar and demonstrate how the model architecture can be tested asynchronously. I've not provided any UI tests due to the evolving nature of the UI over a short period of time and, in the end, the lack of time to do so.
+
+As suggested a mock was created to load data and ViewControllers inject the provider into their ViewModels.  Tests also follow suit, passing in the mock.  The mock is configurable to load valid and invalid data.
+
+## Accessibility
+
+I made sure that the app runs nicely on both large (Max) and small (SE) form factors.  I've also checked it for dark-mode compatibility, adjusting the table cell dark colour to give a reasonable appearance.  It's been run on a real device (iPhone Xs Max, running iOS 17) without issue.
+
+Improving accessibility was investigated but the defaults Apple provided seemed quite sensible.
+
+## Screenshots
+
+|**Light**||||
+|-|-|-|-|
+|Home (icon)||||
+|![](images/moneybox_home.png)|||
+|Login (empty)|Login (filled)|Login (loading)||
+|![](images/moneybox_login_empty_light.png)|![](images/moneybox_login_filled_light.png)|![](images/moneybox_login_loading_light.png)||
+|Accounts||||
+|![](images/moneybox_accounts_light.png)||||
+|Details|Details (adding)|||
+|![](images/moneybox_details_light.png)|![](images/moneybox_details_adding_light.png)|||
+
+|**Dark**||||
+|-|-|-|-|
+|Login (empty)|Login (filled)|Login (loading)||
+|![](images/moneybox_login_empty_dark.png)|![](images/moneybox_login_filled_dark.png)|![](images/moneybox_login_loading_dark.png)||
+|Accounts||||
+|![](images/moneybox_accounts_dark.png)||||
+|Details|Details (adding)|||
+|![](images/moneybox_details_dark.png)|![](images/moneybox_details_adding_dark.png)|||
