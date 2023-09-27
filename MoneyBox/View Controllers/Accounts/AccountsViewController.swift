@@ -65,6 +65,8 @@ class AccountsViewController: UIViewController {
                     break
                     
                 case .loading:
+                    self.errorLabel.isHidden = true
+                    self.tryAgainButton.isHidden = true
                     self.setBusy(true)
                     
                 case .loaded:
