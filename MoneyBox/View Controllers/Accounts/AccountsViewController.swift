@@ -122,6 +122,7 @@ class AccountsViewController: UIViewController {
 // MARK: - Navigation
 
 extension AccountsViewController {
+    
     /**
      * Called by ancestors to load data.  Proxies to the model.
      */
