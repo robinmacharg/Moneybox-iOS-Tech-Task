@@ -22,7 +22,7 @@ Error states are provided to all ViewControllers and error handling is implement
 
 All screens load data asynchronously, where appropriate, with loading indicators.
 
-There appears to be a bug in the simulator implementation of `UITextFieldDelegate`'s `shouldChangeCharactersIn` that causes characters to be deleted.  This does not appear to affect real devices.
+There appears to be [a bug[(https://developer.apple.com/forums/thread/727715) in the simulator implementation of `UITextFieldDelegate`'s `shouldChangeCharactersIn` that causes characters to be deleted.  This does not appear to affect real devices.
 
 Adding money to the Moneybox is reflected in the screen on completion of the request.  The Accounts screen reloads on `willAppear` to ensure it always has up-to-date data.
 
